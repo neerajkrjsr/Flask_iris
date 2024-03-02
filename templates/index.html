@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+	<head>
+		<meta charset="UTF-8">
+		<title>Iris</title>
+		<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>		
+		<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans+Consensed:300' rel='stylesheet' type='text/css'>
+		
+		<style>
+			.footer
+			{
+				position: fixed;
+				left: 0;
+				bottom:0;
+				width: 100%;
+				background-color: lightgray;
+				color: black;
+				text-align: center;
+			}
+			.tab0
+			{
+				display: inline-block;
+				margin-left: 120px;
+			}
+			.tab1
+			{
+				display: inline-block;
+				margin-left: 1px;
+			}
+			.tab2
+			{
+				display: inline-block;
+				margin-left: 2.5px;
+			}
+			.tab3
+			{
+				display: inline-block;
+				margin-left: 8px;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<div class="login">
+			<h2><span class="tab0"></span><u>Iris Flower Species Prediction</u></h2>
+
+			<div>			
+				<img style="float: left; padding-right:1%;" src="../static/Image/Iris_T.png" alt="Iris Sample Photo" width="600 height="500">
+				<img src="../static/Image/Iris.jpg" alt="Iris Sample Photo" width="215 height="315">			
+				<br>
+				<br>
+				<br>
+			</div>
+
+			<div>
+			
+				<!-- Main Input for Receiving Query to our ML -->
+				<form action="{{ url_for('PredictIrisSpecies')}}" method="post">
+					<label><em> Enter the feature values: </em></label>
+					<br>
+					<br>					
+					<label>Sepal Length</label> <span class="tab1"></span>
+					<input type="text" name="sepal_length" placeholder="0.0" required="required" size="6"/>
+					<label>cm</label>
+					<br>
+					<br>					
+					<label>Sepal Width </label> <span class="tab1"></span> <span class="tab1"></span>
+					<input type="text" name="sepal_width" placeholder="0.0" required="required" size="6"/>
+					<label>cm</label>
+					<br>	
+					<br>
+					<label>Petal Length</label> <span class="tab2"></span>
+					<input type="text" name="petal_length" placeholder="0.0" required="required" size="6"/>
+					<label>cm</label>
+					<br>
+					<br>
+					<label>Petal Width</label> <span class="tab3"></span>
+					<input type="text" name="petal_width" placeholder="0.0" required="required" size="6"/>
+					<label>cm</label>
+					<br>
+					<h3> <button style="font-size:15px" type="submit" class="btn btn-primary btn-block btn-large"><b>Predict</b></button>
+				</form>
+			</div>
+			
+		<!--hr width="100%" size="1" color="black"-->
+			
+		<div>
+			{{ Output }}
+		</div>
+		
+		<div class="footer">
+			<p>Developed By: Neeraj Kumar</p>
+		</div>		
+		
+	</body>
+</html>
